@@ -1,0 +1,226 @@
+/* Modal Overlay & Shell */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.modal-container {
+    width: 650px;
+    max-width: 90%;
+    background: var(--bg-core);
+    /* Using core black for better contrast in form */
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+/* Modal Header & Tabs */
+.modal-header {
+    background: var(--glass-surface);
+    padding: 0 32px;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.modal-tabs {
+    display: flex;
+    gap: 32px;
+}
+
+.tab-btn {
+    padding: 24px 0;
+    background: transparent;
+    border: none;
+    font-family: var(--font-main);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-muted);
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s;
+}
+
+.tab-btn:hover {
+    color: var(--text-main);
+}
+
+.tab-btn.active {
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary-neon);
+    box-shadow: 0 0 10px rgba(137, 243, 54, 0.5);
+}
+
+/* Modal Body */
+.modal-body {
+    padding: 32px;
+    min-height: 400px;
+}
+
+/* Form Styles */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+
+.col-span-2 {
+    grid-column: span 2;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* Custom Input Design: Line Only */
+.input-line {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    padding: 8px 0;
+    color: var(--text-main);
+    font-family: var(--font-main);
+    font-size: 16px;
+    transition: all 0.2s;
+    border-radius: 0;
+}
+
+.input-line:focus {
+    outline: none;
+    border-bottom-color: var(--primary-neon);
+    box-shadow: 0 4px 4px -4px rgba(137, 243, 54, 0.2);
+}
+
+.input-line::placeholder {
+    color: var(--text-muted);
+    opacity: 0.5;
+}
+
+/* Brand Intel Styles */
+.brand-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.brand-tag-select {
+    padding: 6px 14px;
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-full);
+    color: var(--text-muted);
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.brand-tag-select:hover {
+    border-color: var(--text-muted);
+}
+
+.brand-tag-select.selected {
+    border-color: var(--primary-neon);
+    color: var(--primary-neon);
+    background: rgba(137, 243, 54, 0.05);
+}
+
+.color-circles {
+    display: flex;
+    gap: 16px;
+}
+
+.color-circle-input {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--glass-border);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.color-circle-input input[type="color"] {
+    width: 150%;
+    height: 150%;
+    transform: translate(-25%, -25%);
+    cursor: pointer;
+    border: none;
+    background: transparent;
+}
+
+/* Footer Actions */
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    padding: 24px 32px;
+    border-top: 1px solid var(--glass-border);
+}
+
+.btn-cancel {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 14px;
+    cursor: pointer;
+    padding: 10px 24px;
+}
+
+.btn-cancel:hover {
+    color: var(--text-main);
+}
+
+.btn-save {
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    /* Subtle border initially */
+    color: var(--primary-neon);
+    padding: 10px 32px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-save:hover {
+    background: var(--primary-neon);
+    color: #000;
+    border-color: var(--primary-neon);
+}
+
+[data-theme="light"] .btn-save {
+    background: #000000;
+    color: var(--primary-neon);
+    border: none;
+}

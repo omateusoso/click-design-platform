@@ -1,0 +1,302 @@
+:root {
+  /* Brand Colors - Constant across themes */
+  --color-lime: #CCFF00;
+  --color-lime-hover: #b3e600;
+
+  /* Semantic Colors - Default (Dark Mode) */
+  --bg-body: #050505;
+  --bg-card: #141414;
+  --bg-card-hover: #1A1A1A;
+  --bg-surface: #222222;
+  --bg-surface-hover: #333333;
+
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-color-hover: rgba(255, 255, 255, 0.2);
+
+  --text-main: #FFFFFF;
+  --text-secondary: #888888;
+  --text-muted: #555555;
+  --text-inverse: #000000;
+
+  /* Spacing & Layout */
+  --radius-sm: 8px;
+  /* --- Global Design System v2.0 Tokens --- */
+
+  /* Typography */
+  --font-main: 'Satoshi', sans-serif;
+
+  /* Palette - Core */
+  --bg-core: #000000;
+  /* Preto Absoluto */
+  --primary-neon: #89F336;
+  /* Verde Limão */
+  --glass-surface: rgba(255, 255, 255, 0.03);
+  /* Fundo dos cards */
+  --glass-border: rgba(255, 255, 255, 0.08);
+  /* Bordas sutis */
+
+  /* Palette - Text */
+  --text-main: #FFFFFF;
+  /* Branco puro */
+  --text-muted: #888888;
+  /* Cinza médio */
+
+  /* Legacy Semantic Mapping (for compatibility) */
+  --color-lime: var(--primary-neon);
+  --color-black: var(--bg-core);
+  --color-white: var(--text-main);
+
+  --bg-body: var(--bg-core);
+  --bg-card: var(--glass-surface);
+  --bg-card-hover: rgba(255, 255, 255, 0.05);
+
+  --text-primary: var(--text-main);
+  --text-secondary: var(--text-muted);
+
+  --border-color: var(--glass-border);
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+}
+
+[data-theme="light"] {
+  /* Tech Brutalism Palette - Laboratory Sterile */
+  --bg-core: #F4F4F5;
+  /* Zinc 100 - Vapor Gray */
+  --bg-body: #F4F4F5;
+
+  --primary-neon: #76D628;
+  /* Adjusted Green for White Backgrounds */
+
+  /* Glass Physics: Reflected Light */
+  --glass-surface: rgba(255, 255, 255, 0.7);
+  /* Milky White */
+  --glass-border: rgba(0, 0, 0, 0.08);
+  /* Sharp Dark Border */
+
+  --bg-card: rgba(255, 255, 255, 0.8);
+  --bg-card-hover: #FFFFFF;
+  --bg-surface: #E4E4E7;
+  --bg-surface-hover: #D4D4D8;
+
+  /* Typography: High Contrast */
+  --text-main: #000000;
+  /* Absolute Black */
+  --text-muted: #52525B;
+  /* Zinc 600 */
+  --text-secondary: #71717A;
+
+  --border-color: rgba(0, 0, 0, 0.1);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.05);
+  /* Soft Shadow */
+}
+
+/* Light Mode Overrides for Specific Components */
+[data-theme="light"] .btn-primary {
+  background-color: #000000;
+  color: #89F336;
+  /* Keep original neon on black button */
+}
+
+[data-theme="light"] .player-card,
+[data-theme="light"] .kanban-column,
+[data-theme="light"] .glass-panel,
+[data-theme="light"] .client-row-card {
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(20px);
+}
+
+[data-theme="light"] input,
+[data-theme="light"] select,
+[data-theme="light"] textarea {
+  background: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: #000;
+}
+
+[data-theme="light"] input:focus {
+  background: #FFF;
+  box-shadow: 0 2px 10px rgba(118, 214, 40, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-core);
+  color: var(--text-main);
+  line-height: 1.5;
+  font-weight: 400;
+  /* Regular */
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Typography Rules */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+a {
+  font-weight: 500;
+  /* Max weight allowed */
+}
+
+strong,
+b {
+  font-weight: 500;
+  /* Override any bold attempt */
+}
+
+/* ================================
+   BUTTON DESIGN SYSTEM
+   ================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 20px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--color-lime);
+  color: #0F0F0F;
+  /* Always dark text on lime */
+}
+
+.btn-primary:hover {
+  background-color: var(--color-lime-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(204, 255, 0, 0.15);
+}
+
+.btn-secondary {
+  background-color: var(--bg-card);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--bg-card-hover);
+  border-color: var(--border-color-hover);
+}
+
+.btn-ghost {
+  background-color: transparent;
+  color: var(--text-secondary);
+}
+
+.btn-ghost:hover {
+  background-color: var(--bg-surface);
+  color: var(--text-main);
+}
+
+.btn-icon {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: var(--radius-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: all 0.2s;
+}
+
+.btn-icon:hover {
+  background-color: var(--bg-surface);
+  color: var(--text-main);
+}
+
+/* ================================
+   UTILITIES
+   ================================ */
+.glass-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-surface-hover);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Text Utilities */
+.text-lime {
+  color: var(--color-lime);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+/* Animation */
+.fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

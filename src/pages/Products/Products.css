@@ -1,0 +1,196 @@
+/* Products Page - Storefront Styles */
+.page-container {
+    padding-bottom: 40px;
+    height: 100vh;
+    overflow-y: auto;
+    /* Enable vertical scroll */
+    display: flex;
+    flex-direction: column;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    flex-shrink: 0;
+}
+
+.header-title h1 {
+    font-family: var(--font-main);
+    font-weight: 300;
+    font-size: 24px;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+}
+
+.filter-pills {
+    display: flex;
+    gap: 8px;
+    background: var(--glass-surface);
+    padding: 4px;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--glass-border);
+}
+
+.filter-pill {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 13px;
+    padding: 6px 16px;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filter-pill:hover {
+    color: var(--text-main);
+}
+
+.filter-pill.active {
+    background: var(--bg-card-hover);
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+/* Products Grid */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 32px;
+    padding-bottom: 80px;
+    /* Space for scroll */
+}
+
+/* Product Card - The Showcase Item */
+.product-card {
+    background: var(--bg-card);
+    /* Theme aware */
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 480px;
+    /* Fixed height for consistency */
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Hover Effect: Scale & Neon Glow */
+.product-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 0 30px rgba(137, 243, 54, 0.15);
+    /* Neon Glow */
+    border-color: var(--primary-neon);
+}
+
+/* Image / Mockup Area */
+.product-image-area {
+    height: 80%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-surface);
+    /* Fallback */
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    opacity: 0.8;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.05);
+    /* Zoom In */
+    opacity: 0.9;
+}
+
+/* Play Button Overlay (Hidden by default) */
+.card-overlay-action {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.btn-start-demand {
+    background: rgba(0, 0, 0, 0.8);
+    /* Always dark for contrast */
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.btn-start-demand svg {
+    color: var(--primary-neon);
+}
+
+.product-card:hover .card-overlay-action {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
+
+/* Footer Info */
+.product-footer {
+    height: 20%;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top: 1px solid var(--glass-border);
+    background: var(--bg-card);
+    /* Fallback */
+    z-index: 5;
+    position: relative;
+}
+
+/* Light Mode Overrides */
+[data-theme="light"] .product-card {
+    box-shadow: var(--shadow-card);
+}
+
+[data-theme="light"] .product-footer {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.product-title {
+    font-family: var(--font-main);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--text-main);
+    margin-bottom: 6px;
+}
+
+.product-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+.sla-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
