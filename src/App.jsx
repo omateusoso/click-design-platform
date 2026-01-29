@@ -11,7 +11,7 @@ import Tasks from './pages/Tasks/Tasks';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/click-design-platform">
       <Routes>
         <Route path="/" element={<DashboardLayout />}>
           <Route index element={<Dashboard />} />
